@@ -1,0 +1,120 @@
+[2021-03-13 16:26:26,003][kospeech.utils][INFO] - audio:
+  audio_extension: pcm
+  sample_rate: 16000
+  frame_length: 20
+  frame_shift: 10
+  normalize: true
+  del_silence: true
+  feature_extract_by: kaldi
+  time_mask_num: 4
+  freq_mask_num: 2
+  spec_augment: true
+  input_reverse: false
+  transform_method: fbank
+  n_mels: 80
+  freq_mask_para: 18
+audio_extension: pcm
+transform_method: fbank
+sample_rate: 16000
+frame_length: 20
+frame_shift: 10
+n_mels: 80
+normalize: true
+del_silence: true
+feature_extract_by: kaldi
+freq_mask_para: 18
+time_mask_num: 4
+freq_mask_num: 2
+spec_augment: true
+input_reverse: false
+model:
+  architecture: deepspeech2
+  teacher_forcing_ratio: 1.0
+  teacher_forcing_step: 0.01
+  min_teacher_forcing_ratio: 0.9
+  dropout: 0.3
+  bidirectional: false
+  joint_ctc_attention: false
+  max_len: 400
+  use_bidirectional: true
+  rnn_type: gru
+  hidden_dim: 1024
+  activation: hardtanh
+  num_encoder_layers: 3
+architecture: deepspeech2
+use_bidirectional: true
+hidden_dim: 1024
+dropout: 0.3
+num_encoder_layers: 3
+rnn_type: gru
+max_len: 400
+activation: hardtanh
+teacher_forcing_ratio: 1.0
+teacher_forcing_step: 0.0
+min_teacher_forcing_ratio: 1.0
+joint_ctc_attention: false
+train:
+  dataset: kspon
+  dataset_path: /content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/dataset/kspon/KsponSpeech_01
+  transcripts_path: ../../../data/transcripts.txt
+  output_unit: character
+  batch_size: 16
+  save_result_every: 1000
+  checkpoint_every: 5000
+  print_every: 50
+  mode: train
+  num_workers: 4
+  use_cuda: true
+  init_lr_scale: 0.01
+  final_lr_scale: 0.05
+  max_grad_norm: 400
+  weight_decay: 1.0e-05
+  seed: 777
+  resume: false
+  optimizer: adam
+  init_lr: 1.0e-06
+  final_lr: 1.0e-06
+  peak_lr: 0.0001
+  warmup_steps: 1000
+  num_epochs: 11
+  reduction: mean
+  lr_scheduler: tri_stage_lr_scheduler
+dataset: kspon
+dataset_path: ''
+transcripts_path: ../../../data/transcripts.txt
+output_unit: character
+num_epochs: 3
+batch_size: 32
+save_result_every: 1000
+checkpoint_every: 5000
+print_every: 20
+mode: train
+seed: 777
+resume: false
+num_workers: 4
+use_cuda: true
+optimizer: adam
+init_lr: 1.0e-06
+final_lr: 1.0e-06
+peak_lr: 0.0001
+init_lr_scale: 0.01
+final_lr_scale: 0.05
+max_grad_norm: 400
+warmup_steps: 400
+weight_decay: 1.0e-05
+reduction: mean
+
+[2021-03-13 16:26:26,036][kospeech.utils][INFO] - Operating System : Linux 4.19.112+
+[2021-03-13 16:26:26,036][kospeech.utils][INFO] - Processor : x86_64
+[2021-03-13 16:26:26,038][kospeech.utils][INFO] - device : Tesla V100-SXM2-16GB
+[2021-03-13 16:26:26,038][kospeech.utils][INFO] - CUDA is available : True
+[2021-03-13 16:26:26,038][kospeech.utils][INFO] - CUDA version : 10.2
+[2021-03-13 16:26:26,038][kospeech.utils][INFO] - PyTorch version : 1.6.0
+[2021-03-13 16:26:26,043][kospeech.utils][INFO] - split dataset start !!
+[2021-03-13 16:26:26,174][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2021-03-13 16:26:26,294][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2021-03-13 16:26:26,317][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2021-03-13 16:26:26,341][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2021-03-13 16:26:26,362][kospeech.utils][INFO] - split dataset complete !!
+[2021-03-13 16:26:29,543][kospeech.utils][INFO] - start
+[2021-03-13 16:26:29,543][kospeech.utils][INFO] - Epoch 0 start

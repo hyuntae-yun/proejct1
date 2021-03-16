@@ -1,0 +1,437 @@
+[2021-03-13 16:45:41,536][kospeech.utils][INFO] - audio:
+  audio_extension: pcm
+  sample_rate: 16000
+  frame_length: 20
+  frame_shift: 10
+  normalize: true
+  del_silence: true
+  feature_extract_by: kaldi
+  time_mask_num: 4
+  freq_mask_num: 2
+  spec_augment: true
+  input_reverse: false
+  transform_method: fbank
+  n_mels: 80
+  freq_mask_para: 18
+audio_extension: pcm
+transform_method: fbank
+sample_rate: 16000
+frame_length: 20
+frame_shift: 10
+n_mels: 80
+normalize: true
+del_silence: true
+feature_extract_by: kaldi
+freq_mask_para: 18
+time_mask_num: 4
+freq_mask_num: 2
+spec_augment: true
+input_reverse: false
+model:
+  architecture: deepspeech2
+  teacher_forcing_ratio: 1.0
+  teacher_forcing_step: 0.01
+  min_teacher_forcing_ratio: 0.9
+  dropout: 0.3
+  bidirectional: false
+  joint_ctc_attention: false
+  max_len: 400
+  use_bidirectional: true
+  rnn_type: gru
+  hidden_dim: 1024
+  activation: hardtanh
+  num_encoder_layers: 3
+architecture: deepspeech2
+use_bidirectional: true
+hidden_dim: 1024
+dropout: 0.3
+num_encoder_layers: 3
+rnn_type: gru
+max_len: 400
+activation: hardtanh
+teacher_forcing_ratio: 1.0
+teacher_forcing_step: 0.0
+min_teacher_forcing_ratio: 1.0
+joint_ctc_attention: false
+train:
+  dataset: kspon
+  dataset_path: /content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/dataset/kspon/KsponSpeech_01
+  transcripts_path: ../../../data/transcripts.txt
+  output_unit: character
+  batch_size: 32
+  save_result_every: 1000
+  checkpoint_every: 5000
+  print_every: 20
+  mode: train
+  num_workers: 4
+  use_cuda: true
+  init_lr_scale: 0.01
+  final_lr_scale: 0.05
+  max_grad_norm: 400
+  weight_decay: 1.0e-05
+  seed: 777
+  resume: false
+  optimizer: adam
+  init_lr: 1.0e-06
+  final_lr: 1.0e-06
+  peak_lr: 0.0001
+  warmup_steps: 1000
+  num_epochs: 3
+  reduction: mean
+  lr_scheduler: tri_stage_lr_scheduler
+dataset: kspon
+dataset_path: ''
+transcripts_path: ../../../data/transcripts.txt
+output_unit: character
+num_epochs: 3
+batch_size: 32
+save_result_every: 1000
+checkpoint_every: 5000
+print_every: 20
+mode: train
+seed: 777
+resume: false
+num_workers: 4
+use_cuda: true
+optimizer: adam
+init_lr: 1.0e-06
+final_lr: 1.0e-06
+peak_lr: 0.0001
+init_lr_scale: 0.01
+final_lr_scale: 0.05
+max_grad_norm: 400
+warmup_steps: 400
+weight_decay: 1.0e-05
+reduction: mean
+
+[2021-03-13 16:45:41,563][kospeech.utils][INFO] - Operating System : Linux 4.19.112+
+[2021-03-13 16:45:41,564][kospeech.utils][INFO] - Processor : x86_64
+[2021-03-13 16:45:41,565][kospeech.utils][INFO] - device : Tesla P100-PCIE-16GB
+[2021-03-13 16:45:41,566][kospeech.utils][INFO] - CUDA is available : True
+[2021-03-13 16:45:41,566][kospeech.utils][INFO] - CUDA version : 10.2
+[2021-03-13 16:45:41,566][kospeech.utils][INFO] - PyTorch version : 1.6.0
+[2021-03-13 16:45:41,847][kospeech.utils][INFO] - split dataset start !!
+[2021-03-13 16:45:42,865][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2021-03-13 16:45:42,892][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2021-03-13 16:45:42,918][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2021-03-13 16:45:42,942][kospeech.utils][INFO] - Applying Spec Augmentation...
+[2021-03-13 16:45:42,964][kospeech.utils][INFO] - split dataset complete !!
+[2021-03-13 16:45:45,546][kospeech.utils][INFO] - start
+[2021-03-13 16:45:45,546][kospeech.utils][INFO] - Epoch 0 start
+[2021-03-13 16:46:49,732][kospeech.utils][INFO] - step:   20/1874, loss: 26.057343, cer: 7.23, elapsed: 64.04s 1.07m 0.02h, lr: 0.000002
+[2021-03-13 16:47:38,079][kospeech.utils][INFO] - step:   40/1874, loss: 8.241959, cer: 4.20, elapsed: 48.35s 1.87m 0.03h, lr: 0.000004
+[2021-03-13 16:48:26,728][kospeech.utils][INFO] - step:   60/1874, loss: 8.640261, cer: 3.13, elapsed: 48.65s 2.68m 0.04h, lr: 0.000006
+[2021-03-13 16:49:09,397][kospeech.utils][INFO] - step:   80/1874, loss: 6.535206, cer: 2.62, elapsed: 42.67s 3.40m 0.06h, lr: 0.000008
+[2021-03-13 16:49:58,619][kospeech.utils][INFO] - step:  100/1874, loss: 6.009447, cer: 2.28, elapsed: 49.22s 4.22m 0.07h, lr: 0.000010
+[2021-03-13 16:50:38,436][kospeech.utils][INFO] - step:  120/1874, loss: 5.539872, cer: 2.07, elapsed: 39.82s 4.88m 0.08h, lr: 0.000012
+[2021-03-13 16:51:12,730][kospeech.utils][INFO] - step:  140/1874, loss: 5.070981, cer: 1.92, elapsed: 34.29s 5.45m 0.09h, lr: 0.000014
+[2021-03-13 16:51:43,607][kospeech.utils][INFO] - step:  160/1874, loss: 4.922993, cer: 1.81, elapsed: 30.88s 5.97m 0.10h, lr: 0.000016
+[2021-03-13 16:52:17,519][kospeech.utils][INFO] - step:  180/1874, loss: 4.767441, cer: 1.72, elapsed: 33.91s 6.53m 0.11h, lr: 0.000018
+[2021-03-13 16:52:52,451][kospeech.utils][INFO] - step:  200/1874, loss: 4.678255, cer: 1.65, elapsed: 34.93s 7.11m 0.12h, lr: 0.000020
+[2021-03-13 16:53:27,787][kospeech.utils][INFO] - step:  220/1874, loss: 4.534119, cer: 1.59, elapsed: 35.34s 7.70m 0.13h, lr: 0.000022
+[2021-03-13 16:54:01,925][kospeech.utils][INFO] - step:  240/1874, loss: 4.626221, cer: 1.54, elapsed: 34.14s 8.27m 0.14h, lr: 0.000024
+[2021-03-13 16:54:37,390][kospeech.utils][INFO] - step:  260/1874, loss: 4.470026, cer: 1.50, elapsed: 35.46s 8.86m 0.15h, lr: 0.000026
+[2021-03-13 16:55:10,668][kospeech.utils][INFO] - step:  280/1874, loss: 4.376520, cer: 1.46, elapsed: 33.28s 9.42m 0.16h, lr: 0.000028
+[2021-03-13 16:55:45,219][kospeech.utils][INFO] - step:  300/1874, loss: 4.308277, cer: 1.43, elapsed: 34.55s 9.99m 0.17h, lr: 0.000030
+[2021-03-13 16:56:20,872][kospeech.utils][INFO] - step:  320/1874, loss: 4.296786, cer: 1.40, elapsed: 35.65s 10.59m 0.18h, lr: 0.000032
+[2021-03-13 16:56:55,169][kospeech.utils][INFO] - step:  340/1874, loss: 4.436078, cer: 1.38, elapsed: 34.30s 11.16m 0.19h, lr: 0.000034
+[2021-03-13 16:57:27,492][kospeech.utils][INFO] - step:  360/1874, loss: 4.315378, cer: 1.36, elapsed: 32.32s 11.70m 0.19h, lr: 0.000036
+[2021-03-13 16:58:01,157][kospeech.utils][INFO] - step:  380/1874, loss: 4.246131, cer: 1.34, elapsed: 33.66s 12.26m 0.20h, lr: 0.000038
+[2021-03-13 16:58:34,552][kospeech.utils][INFO] - step:  400/1874, loss: 4.274918, cer: 1.32, elapsed: 33.39s 12.81m 0.21h, lr: 0.000040
+[2021-03-13 16:59:09,050][kospeech.utils][INFO] - step:  420/1874, loss: 4.109224, cer: 1.30, elapsed: 34.50s 13.39m 0.22h, lr: 0.000042
+[2021-03-13 16:59:42,431][kospeech.utils][INFO] - step:  440/1874, loss: 4.159152, cer: 1.29, elapsed: 33.38s 13.95m 0.23h, lr: 0.000044
+[2021-03-13 17:00:16,065][kospeech.utils][INFO] - step:  460/1874, loss: 4.241421, cer: 1.28, elapsed: 33.63s 14.51m 0.24h, lr: 0.000046
+[2021-03-13 17:00:49,639][kospeech.utils][INFO] - step:  480/1874, loss: 4.104071, cer: 1.26, elapsed: 33.57s 15.07m 0.25h, lr: 0.000048
+[2021-03-13 17:01:24,750][kospeech.utils][INFO] - step:  500/1874, loss: 4.113469, cer: 1.25, elapsed: 35.11s 15.65m 0.26h, lr: 0.000050
+[2021-03-13 17:02:00,070][kospeech.utils][INFO] - step:  520/1874, loss: 4.047848, cer: 1.24, elapsed: 35.32s 16.24m 0.27h, lr: 0.000052
+[2021-03-13 17:02:33,846][kospeech.utils][INFO] - step:  540/1874, loss: 3.937514, cer: 1.23, elapsed: 33.78s 16.80m 0.28h, lr: 0.000054
+[2021-03-13 17:03:10,177][kospeech.utils][INFO] - step:  560/1874, loss: 3.615677, cer: 1.22, elapsed: 36.33s 17.41m 0.29h, lr: 0.000056
+[2021-03-13 17:03:42,957][kospeech.utils][INFO] - step:  580/1874, loss: 3.941147, cer: 1.21, elapsed: 32.78s 17.95m 0.30h, lr: 0.000058
+[2021-03-13 17:04:18,949][kospeech.utils][INFO] - step:  600/1874, loss: 3.935367, cer: 1.21, elapsed: 35.99s 18.55m 0.31h, lr: 0.000060
+[2021-03-13 17:04:55,721][kospeech.utils][INFO] - step:  620/1874, loss: 3.724265, cer: 1.20, elapsed: 36.77s 19.17m 0.32h, lr: 0.000062
+[2021-03-13 17:05:31,526][kospeech.utils][INFO] - step:  640/1874, loss: 3.945450, cer: 1.19, elapsed: 35.80s 19.76m 0.33h, lr: 0.000064
+[2021-03-13 17:06:03,820][kospeech.utils][INFO] - step:  660/1874, loss: 3.927284, cer: 1.18, elapsed: 32.29s 20.30m 0.34h, lr: 0.000066
+[2021-03-13 17:06:37,838][kospeech.utils][INFO] - step:  680/1874, loss: 4.192516, cer: 1.18, elapsed: 34.02s 20.87m 0.35h, lr: 0.000068
+[2021-03-13 17:07:10,728][kospeech.utils][INFO] - step:  700/1874, loss: 3.902452, cer: 1.17, elapsed: 32.89s 21.42m 0.36h, lr: 0.000070
+[2021-03-13 17:07:43,744][kospeech.utils][INFO] - step:  720/1874, loss: 3.815766, cer: 1.17, elapsed: 33.01s 21.97m 0.37h, lr: 0.000072
+[2021-03-13 17:08:18,452][kospeech.utils][INFO] - step:  740/1874, loss: 3.612077, cer: 1.16, elapsed: 34.71s 22.55m 0.38h, lr: 0.000074
+[2021-03-13 17:08:54,453][kospeech.utils][INFO] - step:  760/1874, loss: 3.832525, cer: 1.15, elapsed: 36.00s 23.15m 0.39h, lr: 0.000076
+[2021-03-13 17:09:27,356][kospeech.utils][INFO] - step:  780/1874, loss: 3.535105, cer: 1.15, elapsed: 32.90s 23.69m 0.39h, lr: 0.000078
+[2021-03-13 17:10:00,122][kospeech.utils][INFO] - step:  800/1874, loss: 3.550360, cer: 1.14, elapsed: 32.77s 24.24m 0.40h, lr: 0.000080
+[2021-03-13 17:10:33,619][kospeech.utils][INFO] - step:  820/1874, loss: 3.577511, cer: 1.14, elapsed: 33.50s 24.80m 0.41h, lr: 0.000082
+[2021-03-13 17:11:09,264][kospeech.utils][INFO] - step:  840/1874, loss: 3.582802, cer: 1.14, elapsed: 35.64s 25.39m 0.42h, lr: 0.000084
+[2021-03-13 17:11:43,526][kospeech.utils][INFO] - step:  860/1874, loss: 3.501503, cer: 1.13, elapsed: 34.26s 25.96m 0.43h, lr: 0.000086
+[2021-03-13 17:12:15,472][kospeech.utils][INFO] - step:  880/1874, loss: 3.832529, cer: 1.13, elapsed: 31.95s 26.50m 0.44h, lr: 0.000088
+[2021-03-13 17:12:49,084][kospeech.utils][INFO] - step:  900/1874, loss: 3.465325, cer: 1.12, elapsed: 33.61s 27.06m 0.45h, lr: 0.000090
+[2021-03-13 17:13:23,899][kospeech.utils][INFO] - step:  920/1874, loss: 3.608599, cer: 1.12, elapsed: 34.81s 27.64m 0.46h, lr: 0.000092
+[2021-03-13 17:13:58,706][kospeech.utils][INFO] - step:  940/1874, loss: 3.493779, cer: 1.11, elapsed: 34.81s 28.22m 0.47h, lr: 0.000094
+[2021-03-13 17:14:31,535][kospeech.utils][INFO] - step:  960/1874, loss: 3.479980, cer: 1.11, elapsed: 32.83s 28.76m 0.48h, lr: 0.000096
+[2021-03-13 17:15:05,855][kospeech.utils][INFO] - step:  980/1874, loss: 3.435705, cer: 1.11, elapsed: 34.32s 29.34m 0.49h, lr: 0.000098
+[2021-03-13 17:15:39,979][kospeech.utils][INFO] - step: 1000/1874, loss: 3.132606, cer: 1.10, elapsed: 34.12s 29.90m 0.50h, lr: 0.000100
+[2021-03-13 17:16:14,596][kospeech.utils][INFO] - step: 1020/1874, loss: 3.349941, cer: 1.10, elapsed: 34.62s 30.48m 0.51h, lr: 0.000100
+[2021-03-13 17:16:50,720][kospeech.utils][INFO] - step: 1040/1874, loss: 3.548543, cer: 1.09, elapsed: 36.12s 31.08m 0.52h, lr: 0.000100
+[2021-03-13 17:17:28,086][kospeech.utils][INFO] - step: 1060/1874, loss: 3.264024, cer: 1.09, elapsed: 37.37s 31.71m 0.53h, lr: 0.000100
+[2021-03-13 17:18:02,768][kospeech.utils][INFO] - step: 1080/1874, loss: 3.437425, cer: 1.08, elapsed: 34.68s 32.28m 0.54h, lr: 0.000100
+[2021-03-13 17:18:38,670][kospeech.utils][INFO] - step: 1100/1874, loss: 3.112221, cer: 1.08, elapsed: 35.90s 32.88m 0.55h, lr: 0.000100
+[2021-03-13 17:19:14,025][kospeech.utils][INFO] - step: 1120/1874, loss: 3.183241, cer: 1.08, elapsed: 35.35s 33.47m 0.56h, lr: 0.000100
+[2021-03-13 17:19:49,336][kospeech.utils][INFO] - step: 1140/1874, loss: 3.334301, cer: 1.07, elapsed: 35.31s 34.06m 0.57h, lr: 0.000100
+[2021-03-13 17:20:23,232][kospeech.utils][INFO] - step: 1160/1874, loss: 3.137935, cer: 1.07, elapsed: 33.90s 34.63m 0.58h, lr: 0.000100
+[2021-03-13 17:20:57,502][kospeech.utils][INFO] - step: 1180/1874, loss: 3.003557, cer: 1.06, elapsed: 34.27s 35.20m 0.59h, lr: 0.000100
+[2021-03-13 17:21:30,825][kospeech.utils][INFO] - step: 1200/1874, loss: 3.216442, cer: 1.06, elapsed: 33.32s 35.75m 0.60h, lr: 0.000100
+[2021-03-13 17:22:03,381][kospeech.utils][INFO] - step: 1220/1874, loss: 2.981722, cer: 1.06, elapsed: 32.56s 36.29m 0.60h, lr: 0.000100
+[2021-03-13 17:22:36,499][kospeech.utils][INFO] - step: 1240/1874, loss: 3.109266, cer: 1.05, elapsed: 33.12s 36.85m 0.61h, lr: 0.000100
+[2021-03-13 17:23:11,918][kospeech.utils][INFO] - step: 1260/1874, loss: 3.161243, cer: 1.05, elapsed: 35.42s 37.44m 0.62h, lr: 0.000100
+[2021-03-13 17:23:46,531][kospeech.utils][INFO] - step: 1280/1874, loss: 2.980153, cer: 1.05, elapsed: 34.61s 38.01m 0.63h, lr: 0.000100
+[2021-03-13 17:24:22,175][kospeech.utils][INFO] - step: 1300/1874, loss: 3.231897, cer: 1.04, elapsed: 35.64s 38.61m 0.64h, lr: 0.000100
+[2021-03-13 17:24:56,377][kospeech.utils][INFO] - step: 1320/1874, loss: 3.187471, cer: 1.04, elapsed: 34.20s 39.18m 0.65h, lr: 0.000100
+[2021-03-13 17:25:31,042][kospeech.utils][INFO] - step: 1340/1874, loss: 2.953694, cer: 1.04, elapsed: 34.66s 39.76m 0.66h, lr: 0.000100
+[2021-03-13 17:26:06,707][kospeech.utils][INFO] - step: 1360/1874, loss: 2.821052, cer: 1.03, elapsed: 35.66s 40.35m 0.67h, lr: 0.000100
+[2021-03-13 17:26:42,246][kospeech.utils][INFO] - step: 1380/1874, loss: 2.927286, cer: 1.03, elapsed: 35.54s 40.94m 0.68h, lr: 0.000100
+[2021-03-13 17:27:14,871][kospeech.utils][INFO] - step: 1400/1874, loss: 3.089134, cer: 1.03, elapsed: 32.62s 41.49m 0.69h, lr: 0.000100
+[2021-03-13 17:27:50,763][kospeech.utils][INFO] - step: 1420/1874, loss: 2.854371, cer: 1.02, elapsed: 35.89s 42.08m 0.70h, lr: 0.000100
+[2021-03-13 17:28:23,147][kospeech.utils][INFO] - step: 1440/1874, loss: 2.877833, cer: 1.02, elapsed: 32.38s 42.62m 0.71h, lr: 0.000100
+[2021-03-13 17:28:57,285][kospeech.utils][INFO] - step: 1460/1874, loss: 2.468978, cer: 1.02, elapsed: 34.14s 43.19m 0.72h, lr: 0.000100
+[2021-03-13 17:29:30,388][kospeech.utils][INFO] - step: 1480/1874, loss: 2.846226, cer: 1.01, elapsed: 33.10s 43.74m 0.73h, lr: 0.000100
+[2021-03-13 17:30:03,447][kospeech.utils][INFO] - step: 1500/1874, loss: 2.818497, cer: 1.01, elapsed: 33.06s 44.30m 0.74h, lr: 0.000100
+[2021-03-13 17:30:36,175][kospeech.utils][INFO] - step: 1520/1874, loss: 2.731845, cer: 1.01, elapsed: 32.73s 44.84m 0.75h, lr: 0.000100
+[2021-03-13 17:31:08,577][kospeech.utils][INFO] - step: 1540/1874, loss: 2.842930, cer: 1.00, elapsed: 32.40s 45.38m 0.76h, lr: 0.000100
+[2021-03-13 17:31:42,951][kospeech.utils][INFO] - step: 1560/1874, loss: 2.730966, cer: 1.00, elapsed: 34.37s 45.95m 0.77h, lr: 0.000100
+[2021-03-13 17:32:17,548][kospeech.utils][INFO] - step: 1580/1874, loss: 2.899477, cer: 1.00, elapsed: 34.60s 46.53m 0.78h, lr: 0.000100
+[2021-03-13 17:32:51,833][kospeech.utils][INFO] - step: 1600/1874, loss: 2.861750, cer: 1.00, elapsed: 34.28s 47.10m 0.79h, lr: 0.000100
+[2021-03-13 17:33:25,088][kospeech.utils][INFO] - step: 1620/1874, loss: 2.835013, cer: 0.99, elapsed: 33.25s 47.66m 0.79h, lr: 0.000100
+[2021-03-13 17:33:59,532][kospeech.utils][INFO] - step: 1640/1874, loss: 2.630851, cer: 0.99, elapsed: 34.44s 48.23m 0.80h, lr: 0.000100
+[2021-03-13 17:34:32,519][kospeech.utils][INFO] - step: 1660/1874, loss: 2.618717, cer: 0.99, elapsed: 32.99s 48.78m 0.81h, lr: 0.000100
+[2021-03-13 17:35:06,048][kospeech.utils][INFO] - step: 1680/1874, loss: 2.726552, cer: 0.98, elapsed: 33.53s 49.34m 0.82h, lr: 0.000100
+[2021-03-13 17:35:40,479][kospeech.utils][INFO] - step: 1700/1874, loss: 2.849132, cer: 0.98, elapsed: 34.43s 49.91m 0.83h, lr: 0.000100
+[2021-03-13 17:36:14,513][kospeech.utils][INFO] - step: 1720/1874, loss: 2.410841, cer: 0.98, elapsed: 34.03s 50.48m 0.84h, lr: 0.000100
+[2021-03-13 17:36:48,950][kospeech.utils][INFO] - step: 1740/1874, loss: 2.549661, cer: 0.98, elapsed: 34.44s 51.05m 0.85h, lr: 0.000100
+[2021-03-13 17:37:23,438][kospeech.utils][INFO] - step: 1760/1874, loss: 2.564337, cer: 0.97, elapsed: 34.49s 51.63m 0.86h, lr: 0.000100
+[2021-03-13 17:37:58,743][kospeech.utils][INFO] - step: 1780/1874, loss: 2.575066, cer: 0.97, elapsed: 35.30s 52.22m 0.87h, lr: 0.000100
+[2021-03-13 17:38:34,232][kospeech.utils][INFO] - step: 1800/1874, loss: 2.497855, cer: 0.97, elapsed: 35.49s 52.81m 0.88h, lr: 0.000100
+[2021-03-13 17:39:08,962][kospeech.utils][INFO] - step: 1820/1874, loss: 2.442019, cer: 0.97, elapsed: 34.73s 53.39m 0.89h, lr: 0.000100
+[2021-03-13 17:39:43,709][kospeech.utils][INFO] - step: 1840/1874, loss: 2.323307, cer: 0.96, elapsed: 34.75s 53.97m 0.90h, lr: 0.000100
+[2021-03-13 17:40:20,072][kospeech.utils][INFO] - step: 1860/1874, loss: 2.479005, cer: 0.96, elapsed: 36.36s 54.57m 0.91h, lr: 0.000100
+[2021-03-13 17:40:47,144][kospeech.utils][INFO] - save checkpoints
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_17_40_43-trainer_states.pt
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_17_40_43-model.pt
+[2021-03-13 17:40:47,144][kospeech.utils][INFO] - train() completed
+[2021-03-13 17:40:51,399][kospeech.utils][INFO] - save checkpoints
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_17_40_47-trainer_states.pt
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_17_40_47-model.pt
+[2021-03-13 17:40:51,399][kospeech.utils][INFO] - Epoch 0 (Training) Loss 0.0003 CER 0.9592
+[2021-03-13 17:40:51,400][kospeech.utils][INFO] - validate() start
+[2021-03-13 17:48:08,147][kospeech.utils][INFO] - validate() completed
+[2021-03-13 17:48:08,148][kospeech.utils][INFO] - Epoch 0 CER 0.9508
+[2021-03-13 17:48:08,159][kospeech.utils][INFO] - Epoch 0 Training result saved as a csv file complete !!
+[2021-03-13 17:48:08,206][kospeech.utils][INFO] - Epoch 1 start
+[2021-03-13 17:48:46,363][kospeech.utils][INFO] - step:   20/1874, loss: 2.527513, cer: 0.95, elapsed: 38.01s 0.63m 1.05h, lr: 0.000100
+[2021-03-13 17:49:22,409][kospeech.utils][INFO] - step:   40/1874, loss: 2.312903, cer: 0.95, elapsed: 36.05s 1.23m 1.06h, lr: 0.000100
+[2021-03-13 17:49:55,674][kospeech.utils][INFO] - step:   60/1874, loss: 2.499357, cer: 0.94, elapsed: 33.27s 1.79m 1.07h, lr: 0.000100
+[2021-03-13 17:50:29,615][kospeech.utils][INFO] - step:   80/1874, loss: 2.395391, cer: 0.94, elapsed: 33.94s 2.35m 1.08h, lr: 0.000100
+[2021-03-13 17:51:04,642][kospeech.utils][INFO] - step:  100/1874, loss: 2.238750, cer: 0.94, elapsed: 35.03s 2.94m 1.09h, lr: 0.000100
+[2021-03-13 17:51:39,517][kospeech.utils][INFO] - step:  120/1874, loss: 2.508341, cer: 0.94, elapsed: 34.87s 3.52m 1.10h, lr: 0.000100
+[2021-03-13 17:52:12,442][kospeech.utils][INFO] - step:  140/1874, loss: 2.562146, cer: 0.94, elapsed: 32.92s 4.07m 1.11h, lr: 0.000100
+[2021-03-13 17:52:48,438][kospeech.utils][INFO] - step:  160/1874, loss: 2.446705, cer: 0.93, elapsed: 36.00s 4.67m 1.12h, lr: 0.000100
+[2021-03-13 17:53:21,356][kospeech.utils][INFO] - step:  180/1874, loss: 2.434230, cer: 0.93, elapsed: 32.92s 5.22m 1.13h, lr: 0.000100
+[2021-03-13 17:53:54,372][kospeech.utils][INFO] - step:  200/1874, loss: 2.262986, cer: 0.93, elapsed: 33.02s 5.77m 1.14h, lr: 0.000100
+[2021-03-13 17:54:30,612][kospeech.utils][INFO] - step:  220/1874, loss: 2.478271, cer: 0.93, elapsed: 36.24s 6.37m 1.15h, lr: 0.000100
+[2021-03-13 17:55:05,953][kospeech.utils][INFO] - step:  240/1874, loss: 2.327091, cer: 0.93, elapsed: 35.34s 6.96m 1.16h, lr: 0.000100
+[2021-03-13 17:55:39,053][kospeech.utils][INFO] - step:  260/1874, loss: 2.319057, cer: 0.92, elapsed: 33.10s 7.51m 1.16h, lr: 0.000100
+[2021-03-13 17:56:12,140][kospeech.utils][INFO] - step:  280/1874, loss: 2.281318, cer: 0.92, elapsed: 33.09s 8.06m 1.17h, lr: 0.000100
+[2021-03-13 17:56:45,072][kospeech.utils][INFO] - step:  300/1874, loss: 2.389759, cer: 0.92, elapsed: 32.93s 8.61m 1.18h, lr: 0.000100
+[2021-03-13 17:57:19,585][kospeech.utils][INFO] - step:  320/1874, loss: 2.274156, cer: 0.92, elapsed: 34.51s 9.19m 1.19h, lr: 0.000100
+[2021-03-13 17:57:56,225][kospeech.utils][INFO] - step:  340/1874, loss: 2.426111, cer: 0.92, elapsed: 36.64s 9.80m 1.20h, lr: 0.000100
+[2021-03-13 17:58:27,797][kospeech.utils][INFO] - step:  360/1874, loss: 2.271828, cer: 0.91, elapsed: 31.57s 10.32m 1.21h, lr: 0.000100
+[2021-03-13 17:59:01,312][kospeech.utils][INFO] - step:  380/1874, loss: 2.374276, cer: 0.91, elapsed: 33.51s 10.88m 1.22h, lr: 0.000100
+[2021-03-13 17:59:36,238][kospeech.utils][INFO] - step:  400/1874, loss: 2.508450, cer: 0.91, elapsed: 34.93s 11.46m 1.23h, lr: 0.000100
+[2021-03-13 18:00:08,231][kospeech.utils][INFO] - step:  420/1874, loss: 2.324122, cer: 0.91, elapsed: 31.99s 12.00m 1.24h, lr: 0.000100
+[2021-03-13 18:00:39,755][kospeech.utils][INFO] - step:  440/1874, loss: 2.188890, cer: 0.91, elapsed: 31.52s 12.52m 1.25h, lr: 0.000100
+[2021-03-13 18:01:15,506][kospeech.utils][INFO] - step:  460/1874, loss: 2.395692, cer: 0.91, elapsed: 35.75s 13.12m 1.26h, lr: 0.000100
+[2021-03-13 18:01:49,415][kospeech.utils][INFO] - step:  480/1874, loss: 2.237727, cer: 0.90, elapsed: 33.91s 13.68m 1.27h, lr: 0.000100
+[2021-03-13 18:02:26,025][kospeech.utils][INFO] - step:  500/1874, loss: 2.191262, cer: 0.90, elapsed: 36.61s 14.29m 1.28h, lr: 0.000100
+[2021-03-13 18:03:00,124][kospeech.utils][INFO] - step:  520/1874, loss: 2.284662, cer: 0.90, elapsed: 34.10s 14.86m 1.29h, lr: 0.000100
+[2021-03-13 18:03:32,504][kospeech.utils][INFO] - step:  540/1874, loss: 2.109015, cer: 0.90, elapsed: 32.38s 15.40m 1.30h, lr: 0.000100
+[2021-03-13 18:04:03,369][kospeech.utils][INFO] - step:  560/1874, loss: 2.230442, cer: 0.90, elapsed: 30.86s 15.92m 1.30h, lr: 0.000100
+[2021-03-13 18:04:37,068][kospeech.utils][INFO] - step:  580/1874, loss: 2.390105, cer: 0.90, elapsed: 33.70s 16.48m 1.31h, lr: 0.000100
+[2021-03-13 18:05:12,650][kospeech.utils][INFO] - step:  600/1874, loss: 2.178951, cer: 0.89, elapsed: 35.58s 17.07m 1.32h, lr: 0.000100
+[2021-03-13 18:05:50,109][kospeech.utils][INFO] - step:  620/1874, loss: 2.272046, cer: 0.89, elapsed: 37.46s 17.70m 1.33h, lr: 0.000100
+[2021-03-13 18:06:23,539][kospeech.utils][INFO] - step:  640/1874, loss: 2.358396, cer: 0.89, elapsed: 33.43s 18.25m 1.34h, lr: 0.000100
+[2021-03-13 18:06:58,940][kospeech.utils][INFO] - step:  660/1874, loss: 2.206838, cer: 0.89, elapsed: 35.40s 18.84m 1.35h, lr: 0.000100
+[2021-03-13 18:07:33,024][kospeech.utils][INFO] - step:  680/1874, loss: 2.042953, cer: 0.89, elapsed: 34.08s 19.41m 1.36h, lr: 0.000100
+[2021-03-13 18:08:07,319][kospeech.utils][INFO] - step:  700/1874, loss: 2.205086, cer: 0.89, elapsed: 34.30s 19.98m 1.37h, lr: 0.000100
+[2021-03-13 18:08:43,318][kospeech.utils][INFO] - step:  720/1874, loss: 2.196641, cer: 0.88, elapsed: 36.00s 20.58m 1.38h, lr: 0.000100
+[2021-03-13 18:09:19,092][kospeech.utils][INFO] - step:  740/1874, loss: 2.185135, cer: 0.88, elapsed: 35.77s 21.18m 1.39h, lr: 0.000100
+[2021-03-13 18:09:50,686][kospeech.utils][INFO] - step:  760/1874, loss: 2.052300, cer: 0.88, elapsed: 31.59s 21.71m 1.40h, lr: 0.000100
+[2021-03-13 18:10:24,810][kospeech.utils][INFO] - step:  780/1874, loss: 2.165020, cer: 0.88, elapsed: 34.12s 22.27m 1.41h, lr: 0.000100
+[2021-03-13 18:10:59,157][kospeech.utils][INFO] - step:  800/1874, loss: 2.193804, cer: 0.88, elapsed: 34.35s 22.85m 1.42h, lr: 0.000100
+[2021-03-13 18:11:33,126][kospeech.utils][INFO] - step:  820/1874, loss: 2.126950, cer: 0.88, elapsed: 33.97s 23.41m 1.43h, lr: 0.000100
+[2021-03-13 18:12:08,691][kospeech.utils][INFO] - step:  840/1874, loss: 2.189696, cer: 0.88, elapsed: 35.56s 24.01m 1.44h, lr: 0.000100
+[2021-03-13 18:12:42,380][kospeech.utils][INFO] - step:  860/1874, loss: 2.076385, cer: 0.87, elapsed: 33.69s 24.57m 1.45h, lr: 0.000100
+[2021-03-13 18:13:18,006][kospeech.utils][INFO] - step:  880/1874, loss: 2.232111, cer: 0.87, elapsed: 35.63s 25.16m 1.46h, lr: 0.000100
+[2021-03-13 18:13:51,787][kospeech.utils][INFO] - step:  900/1874, loss: 2.133823, cer: 0.87, elapsed: 33.78s 25.72m 1.47h, lr: 0.000100
+[2021-03-13 18:14:24,512][kospeech.utils][INFO] - step:  920/1874, loss: 2.111612, cer: 0.87, elapsed: 32.72s 26.27m 1.48h, lr: 0.000100
+[2021-03-13 18:14:58,798][kospeech.utils][INFO] - step:  940/1874, loss: 2.035546, cer: 0.87, elapsed: 34.29s 26.84m 1.49h, lr: 0.000100
+[2021-03-13 18:15:31,961][kospeech.utils][INFO] - step:  960/1874, loss: 2.243181, cer: 0.87, elapsed: 33.16s 27.39m 1.50h, lr: 0.000100
+[2021-03-13 18:16:06,677][kospeech.utils][INFO] - step:  980/1874, loss: 2.163394, cer: 0.87, elapsed: 34.72s 27.97m 1.51h, lr: 0.000100
+[2021-03-13 18:16:41,433][kospeech.utils][INFO] - step: 1000/1874, loss: 2.145162, cer: 0.86, elapsed: 34.75s 28.55m 1.52h, lr: 0.000100
+[2021-03-13 18:17:15,498][kospeech.utils][INFO] - step: 1020/1874, loss: 2.131295, cer: 0.86, elapsed: 34.06s 29.12m 1.52h, lr: 0.000100
+[2021-03-13 18:17:49,340][kospeech.utils][INFO] - step: 1040/1874, loss: 2.192406, cer: 0.86, elapsed: 33.84s 29.68m 1.53h, lr: 0.000100
+[2021-03-13 18:18:23,949][kospeech.utils][INFO] - step: 1060/1874, loss: 1.940121, cer: 0.86, elapsed: 34.61s 30.26m 1.54h, lr: 0.000100
+[2021-03-13 18:18:57,153][kospeech.utils][INFO] - step: 1080/1874, loss: 1.770414, cer: 0.86, elapsed: 33.20s 30.81m 1.55h, lr: 0.000100
+[2021-03-13 18:19:31,142][kospeech.utils][INFO] - step: 1100/1874, loss: 2.136195, cer: 0.86, elapsed: 33.99s 31.38m 1.56h, lr: 0.000100
+[2021-03-13 18:20:07,059][kospeech.utils][INFO] - step: 1120/1874, loss: 1.889262, cer: 0.86, elapsed: 35.92s 31.98m 1.57h, lr: 0.000100
+[2021-03-13 18:20:40,714][kospeech.utils][INFO] - step: 1140/1874, loss: 2.000442, cer: 0.85, elapsed: 33.65s 32.54m 1.58h, lr: 0.000100
+[2021-03-13 18:21:12,174][kospeech.utils][INFO] - step: 1160/1874, loss: 2.175608, cer: 0.85, elapsed: 31.46s 33.06m 1.59h, lr: 0.000100
+[2021-03-13 18:21:47,340][kospeech.utils][INFO] - step: 1180/1874, loss: 1.964145, cer: 0.85, elapsed: 35.17s 33.65m 1.60h, lr: 0.000100
+[2021-03-13 18:22:21,043][kospeech.utils][INFO] - step: 1200/1874, loss: 1.904756, cer: 0.85, elapsed: 33.70s 34.21m 1.61h, lr: 0.000100
+[2021-03-13 18:22:53,636][kospeech.utils][INFO] - step: 1220/1874, loss: 1.946295, cer: 0.85, elapsed: 32.59s 34.75m 1.62h, lr: 0.000100
+[2021-03-13 18:23:30,748][kospeech.utils][INFO] - step: 1240/1874, loss: 2.166102, cer: 0.85, elapsed: 37.11s 35.37m 1.63h, lr: 0.000100
+[2021-03-13 18:24:03,856][kospeech.utils][INFO] - step: 1260/1874, loss: 2.281198, cer: 0.85, elapsed: 33.11s 35.93m 1.64h, lr: 0.000100
+[2021-03-13 18:24:39,557][kospeech.utils][INFO] - step: 1280/1874, loss: 1.955488, cer: 0.85, elapsed: 35.70s 36.52m 1.65h, lr: 0.000100
+[2021-03-13 18:25:12,647][kospeech.utils][INFO] - step: 1300/1874, loss: 1.989508, cer: 0.84, elapsed: 33.09s 37.07m 1.66h, lr: 0.000100
+[2021-03-13 18:25:46,990][kospeech.utils][INFO] - step: 1320/1874, loss: 1.961965, cer: 0.84, elapsed: 34.34s 37.64m 1.67h, lr: 0.000100
+[2021-03-13 18:26:21,313][kospeech.utils][INFO] - step: 1340/1874, loss: 1.976427, cer: 0.84, elapsed: 34.32s 38.22m 1.68h, lr: 0.000100
+[2021-03-13 18:26:53,261][kospeech.utils][INFO] - step: 1360/1874, loss: 1.850659, cer: 0.84, elapsed: 31.95s 38.75m 1.69h, lr: 0.000100
+[2021-03-13 18:27:27,922][kospeech.utils][INFO] - step: 1380/1874, loss: 1.749214, cer: 0.84, elapsed: 34.66s 39.33m 1.70h, lr: 0.000100
+[2021-03-13 18:28:02,376][kospeech.utils][INFO] - step: 1400/1874, loss: 1.994765, cer: 0.84, elapsed: 34.45s 39.90m 1.70h, lr: 0.000100
+[2021-03-13 18:28:36,862][kospeech.utils][INFO] - step: 1420/1874, loss: 1.753613, cer: 0.84, elapsed: 34.49s 40.48m 1.71h, lr: 0.000100
+[2021-03-13 18:29:09,023][kospeech.utils][INFO] - step: 1440/1874, loss: 1.809657, cer: 0.84, elapsed: 32.16s 41.01m 1.72h, lr: 0.000100
+[2021-03-13 18:29:44,086][kospeech.utils][INFO] - step: 1460/1874, loss: 1.898879, cer: 0.84, elapsed: 35.06s 41.60m 1.73h, lr: 0.000100
+[2021-03-13 18:30:20,091][kospeech.utils][INFO] - step: 1480/1874, loss: 2.062731, cer: 0.83, elapsed: 36.00s 42.20m 1.74h, lr: 0.000100
+[2021-03-13 18:30:55,998][kospeech.utils][INFO] - step: 1500/1874, loss: 2.145668, cer: 0.83, elapsed: 35.91s 42.79m 1.75h, lr: 0.000100
+[2021-03-13 18:31:29,668][kospeech.utils][INFO] - step: 1520/1874, loss: 1.823629, cer: 0.83, elapsed: 33.67s 43.36m 1.76h, lr: 0.000100
+[2021-03-13 18:32:02,355][kospeech.utils][INFO] - step: 1540/1874, loss: 1.986110, cer: 0.83, elapsed: 32.69s 43.90m 1.77h, lr: 0.000100
+[2021-03-13 18:32:37,655][kospeech.utils][INFO] - step: 1560/1874, loss: 1.924279, cer: 0.83, elapsed: 35.30s 44.49m 1.78h, lr: 0.000100
+[2021-03-13 18:33:11,786][kospeech.utils][INFO] - step: 1580/1874, loss: 1.837694, cer: 0.83, elapsed: 34.13s 45.06m 1.79h, lr: 0.000100
+[2021-03-13 18:33:44,560][kospeech.utils][INFO] - step: 1600/1874, loss: 1.912625, cer: 0.83, elapsed: 32.77s 45.60m 1.80h, lr: 0.000100
+[2021-03-13 18:34:19,415][kospeech.utils][INFO] - step: 1620/1874, loss: 1.936139, cer: 0.83, elapsed: 34.85s 46.18m 1.81h, lr: 0.000100
+[2021-03-13 18:34:56,359][kospeech.utils][INFO] - step: 1640/1874, loss: 1.901524, cer: 0.83, elapsed: 36.94s 46.80m 1.82h, lr: 0.000100
+[2021-03-13 18:35:31,878][kospeech.utils][INFO] - step: 1660/1874, loss: 1.934806, cer: 0.82, elapsed: 35.52s 47.39m 1.83h, lr: 0.000100
+[2021-03-13 18:36:06,652][kospeech.utils][INFO] - step: 1680/1874, loss: 1.582026, cer: 0.82, elapsed: 34.77s 47.97m 1.84h, lr: 0.000100
+[2021-03-13 18:36:42,021][kospeech.utils][INFO] - step: 1700/1874, loss: 1.637180, cer: 0.82, elapsed: 35.37s 48.56m 1.85h, lr: 0.000100
+[2021-03-13 18:37:16,098][kospeech.utils][INFO] - step: 1720/1874, loss: 1.960563, cer: 0.82, elapsed: 34.08s 49.13m 1.86h, lr: 0.000100
+[2021-03-13 18:37:48,915][kospeech.utils][INFO] - step: 1740/1874, loss: 1.896112, cer: 0.82, elapsed: 32.82s 49.68m 1.87h, lr: 0.000100
+[2021-03-13 18:38:25,142][kospeech.utils][INFO] - step: 1760/1874, loss: 1.794694, cer: 0.82, elapsed: 36.23s 50.28m 1.88h, lr: 0.000100
+[2021-03-13 18:38:56,735][kospeech.utils][INFO] - step: 1780/1874, loss: 1.943801, cer: 0.82, elapsed: 31.59s 50.81m 1.89h, lr: 0.000100
+[2021-03-13 18:39:31,262][kospeech.utils][INFO] - step: 1800/1874, loss: 1.798653, cer: 0.82, elapsed: 34.53s 51.38m 1.90h, lr: 0.000100
+[2021-03-13 18:40:04,142][kospeech.utils][INFO] - step: 1820/1874, loss: 1.742737, cer: 0.82, elapsed: 32.88s 51.93m 1.91h, lr: 0.000100
+[2021-03-13 18:40:35,451][kospeech.utils][INFO] - step: 1840/1874, loss: 1.618962, cer: 0.81, elapsed: 31.31s 52.45m 1.91h, lr: 0.000100
+[2021-03-13 18:41:10,979][kospeech.utils][INFO] - step: 1860/1874, loss: 1.715587, cer: 0.81, elapsed: 35.53s 53.04m 1.92h, lr: 0.000100
+[2021-03-13 18:41:39,801][kospeech.utils][INFO] - save checkpoints
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_18_41_35-trainer_states.pt
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_18_41_35-model.pt
+[2021-03-13 18:41:39,801][kospeech.utils][INFO] - train() completed
+[2021-03-13 18:41:43,777][kospeech.utils][INFO] - save checkpoints
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_18_41_39-trainer_states.pt
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_18_41_39-model.pt
+[2021-03-13 18:41:43,778][kospeech.utils][INFO] - Epoch 1 (Training) Loss 0.0002 CER 0.8133
+[2021-03-13 18:41:43,779][kospeech.utils][INFO] - validate() start
+[2021-03-13 18:42:37,597][kospeech.utils][INFO] - validate() completed
+[2021-03-13 18:42:37,598][kospeech.utils][INFO] - Epoch 1 CER 0.8092
+[2021-03-13 18:42:37,610][kospeech.utils][INFO] - Epoch 1 Training result saved as a csv file complete !!
+[2021-03-13 18:42:37,655][kospeech.utils][INFO] - Epoch 2 start
+[2021-03-13 18:43:13,689][kospeech.utils][INFO] - step:   20/1874, loss: 1.794986, cer: 0.81, elapsed: 35.97s 0.60m 1.96h, lr: 0.000100
+[2021-03-13 18:43:45,879][kospeech.utils][INFO] - step:   40/1874, loss: 1.812212, cer: 0.81, elapsed: 32.19s 1.14m 1.97h, lr: 0.000100
+[2021-03-13 18:44:19,346][kospeech.utils][INFO] - step:   60/1874, loss: 1.575340, cer: 0.81, elapsed: 33.47s 1.69m 1.98h, lr: 0.000100
+[2021-03-13 18:44:54,451][kospeech.utils][INFO] - step:   80/1874, loss: 1.754315, cer: 0.81, elapsed: 35.10s 2.28m 1.99h, lr: 0.000100
+[2021-03-13 18:45:29,191][kospeech.utils][INFO] - step:  100/1874, loss: 1.715971, cer: 0.80, elapsed: 34.74s 2.86m 2.00h, lr: 0.000100
+[2021-03-13 18:46:04,372][kospeech.utils][INFO] - step:  120/1874, loss: 1.688952, cer: 0.80, elapsed: 35.18s 3.44m 2.01h, lr: 0.000100
+[2021-03-13 18:46:37,773][kospeech.utils][INFO] - step:  140/1874, loss: 1.996320, cer: 0.80, elapsed: 33.40s 4.00m 2.01h, lr: 0.000100
+[2021-03-13 18:47:12,512][kospeech.utils][INFO] - step:  160/1874, loss: 1.728744, cer: 0.80, elapsed: 34.74s 4.58m 2.02h, lr: 0.000100
+[2021-03-13 18:47:45,995][kospeech.utils][INFO] - step:  180/1874, loss: 1.689113, cer: 0.80, elapsed: 33.48s 5.14m 2.03h, lr: 0.000100
+[2021-03-13 18:48:18,398][kospeech.utils][INFO] - step:  200/1874, loss: 1.688330, cer: 0.80, elapsed: 32.40s 5.68m 2.04h, lr: 0.000100
+[2021-03-13 18:48:50,032][kospeech.utils][INFO] - step:  220/1874, loss: 1.777070, cer: 0.80, elapsed: 31.63s 6.21m 2.05h, lr: 0.000100
+[2021-03-13 18:49:23,891][kospeech.utils][INFO] - step:  240/1874, loss: 1.853411, cer: 0.80, elapsed: 33.86s 6.77m 2.06h, lr: 0.000100
+[2021-03-13 18:49:57,119][kospeech.utils][INFO] - step:  260/1874, loss: 1.833017, cer: 0.80, elapsed: 33.23s 7.32m 2.07h, lr: 0.000100
+[2021-03-13 18:50:30,985][kospeech.utils][INFO] - step:  280/1874, loss: 1.814816, cer: 0.80, elapsed: 33.87s 7.89m 2.08h, lr: 0.000100
+[2021-03-13 18:51:03,745][kospeech.utils][INFO] - step:  300/1874, loss: 1.926920, cer: 0.79, elapsed: 32.76s 8.43m 2.09h, lr: 0.000100
+[2021-03-13 18:51:39,440][kospeech.utils][INFO] - step:  320/1874, loss: 1.586166, cer: 0.79, elapsed: 35.69s 9.03m 2.10h, lr: 0.000100
+[2021-03-13 18:52:15,236][kospeech.utils][INFO] - step:  340/1874, loss: 1.630244, cer: 0.79, elapsed: 35.80s 9.63m 2.11h, lr: 0.000100
+[2021-03-13 18:52:51,640][kospeech.utils][INFO] - step:  360/1874, loss: 1.951510, cer: 0.79, elapsed: 36.40s 10.23m 2.12h, lr: 0.000100
+[2021-03-13 18:53:25,646][kospeech.utils][INFO] - step:  380/1874, loss: 1.610585, cer: 0.79, elapsed: 34.01s 10.80m 2.13h, lr: 0.000100
+[2021-03-13 18:54:01,507][kospeech.utils][INFO] - step:  400/1874, loss: 1.653013, cer: 0.79, elapsed: 35.86s 11.40m 2.14h, lr: 0.000100
+[2021-03-13 18:54:38,347][kospeech.utils][INFO] - step:  420/1874, loss: 1.542670, cer: 0.79, elapsed: 36.84s 12.01m 2.15h, lr: 0.000100
+[2021-03-13 18:55:10,103][kospeech.utils][INFO] - step:  440/1874, loss: 1.671102, cer: 0.79, elapsed: 31.76s 12.54m 2.16h, lr: 0.000100
+[2021-03-13 18:55:44,543][kospeech.utils][INFO] - step:  460/1874, loss: 1.814667, cer: 0.79, elapsed: 34.44s 13.11m 2.17h, lr: 0.000100
+[2021-03-13 18:56:19,178][kospeech.utils][INFO] - step:  480/1874, loss: 1.779042, cer: 0.79, elapsed: 34.63s 13.69m 2.18h, lr: 0.000100
+[2021-03-13 18:56:53,921][kospeech.utils][INFO] - step:  500/1874, loss: 1.709199, cer: 0.79, elapsed: 34.74s 14.27m 2.19h, lr: 0.000100
+[2021-03-13 18:57:27,853][kospeech.utils][INFO] - step:  520/1874, loss: 1.623621, cer: 0.79, elapsed: 33.93s 14.84m 2.20h, lr: 0.000100
+[2021-03-13 18:58:05,209][kospeech.utils][INFO] - step:  540/1874, loss: 1.822512, cer: 0.78, elapsed: 37.36s 15.46m 2.21h, lr: 0.000100
+[2021-03-13 18:58:40,406][kospeech.utils][INFO] - step:  560/1874, loss: 1.755511, cer: 0.78, elapsed: 35.20s 16.04m 2.22h, lr: 0.000100
+[2021-03-13 18:59:14,254][kospeech.utils][INFO] - step:  580/1874, loss: 1.871359, cer: 0.78, elapsed: 33.85s 16.61m 2.22h, lr: 0.000100
+[2021-03-13 18:59:49,173][kospeech.utils][INFO] - step:  600/1874, loss: 1.793383, cer: 0.78, elapsed: 34.92s 17.19m 2.23h, lr: 0.000100
+[2021-03-13 19:00:23,984][kospeech.utils][INFO] - step:  620/1874, loss: 1.774500, cer: 0.78, elapsed: 34.81s 17.77m 2.24h, lr: 0.000100
+[2021-03-13 19:00:59,074][kospeech.utils][INFO] - step:  640/1874, loss: 1.710845, cer: 0.78, elapsed: 35.09s 18.36m 2.25h, lr: 0.000100
+[2021-03-13 19:01:34,301][kospeech.utils][INFO] - step:  660/1874, loss: 1.789856, cer: 0.78, elapsed: 35.23s 18.94m 2.26h, lr: 0.000100
+[2021-03-13 19:02:08,887][kospeech.utils][INFO] - step:  680/1874, loss: 1.710854, cer: 0.78, elapsed: 34.59s 19.52m 2.27h, lr: 0.000100
+[2021-03-13 19:02:43,880][kospeech.utils][INFO] - step:  700/1874, loss: 1.773727, cer: 0.78, elapsed: 34.99s 20.10m 2.28h, lr: 0.000100
+[2021-03-13 19:03:20,136][kospeech.utils][INFO] - step:  720/1874, loss: 1.738466, cer: 0.78, elapsed: 36.26s 20.71m 2.29h, lr: 0.000100
+[2021-03-13 19:03:54,940][kospeech.utils][INFO] - step:  740/1874, loss: 1.794673, cer: 0.78, elapsed: 34.80s 21.29m 2.30h, lr: 0.000100
+[2021-03-13 19:04:29,413][kospeech.utils][INFO] - step:  760/1874, loss: 1.791726, cer: 0.78, elapsed: 34.47s 21.86m 2.31h, lr: 0.000100
+[2021-03-13 19:05:04,330][kospeech.utils][INFO] - step:  780/1874, loss: 1.530824, cer: 0.77, elapsed: 34.92s 22.44m 2.32h, lr: 0.000100
+[2021-03-13 19:05:38,576][kospeech.utils][INFO] - step:  800/1874, loss: 1.781220, cer: 0.77, elapsed: 34.25s 23.01m 2.33h, lr: 0.000100
+[2021-03-13 19:06:11,493][kospeech.utils][INFO] - step:  820/1874, loss: 1.591623, cer: 0.77, elapsed: 32.92s 23.56m 2.34h, lr: 0.000100
+[2021-03-13 19:06:46,530][kospeech.utils][INFO] - step:  840/1874, loss: 1.608718, cer: 0.77, elapsed: 35.04s 24.15m 2.35h, lr: 0.000100
+[2021-03-13 19:07:21,229][kospeech.utils][INFO] - step:  860/1874, loss: 1.747511, cer: 0.77, elapsed: 34.70s 24.73m 2.36h, lr: 0.000100
+[2021-03-13 19:07:56,726][kospeech.utils][INFO] - step:  880/1874, loss: 1.637121, cer: 0.77, elapsed: 35.50s 25.32m 2.37h, lr: 0.000100
+[2021-03-13 19:08:33,107][kospeech.utils][INFO] - step:  900/1874, loss: 1.886752, cer: 0.77, elapsed: 36.38s 25.92m 2.38h, lr: 0.000100
+[2021-03-13 19:09:07,934][kospeech.utils][INFO] - step:  920/1874, loss: 1.702212, cer: 0.77, elapsed: 34.83s 26.50m 2.39h, lr: 0.000100
+[2021-03-13 19:09:42,604][kospeech.utils][INFO] - step:  940/1874, loss: 1.826791, cer: 0.77, elapsed: 34.67s 27.08m 2.40h, lr: 0.000100
+[2021-03-13 19:10:17,905][kospeech.utils][INFO] - step:  960/1874, loss: 1.652195, cer: 0.77, elapsed: 35.30s 27.67m 2.41h, lr: 0.000100
+[2021-03-13 19:10:52,675][kospeech.utils][INFO] - step:  980/1874, loss: 1.698998, cer: 0.77, elapsed: 34.77s 28.25m 2.42h, lr: 0.000100
+[2021-03-13 19:11:28,589][kospeech.utils][INFO] - step: 1000/1874, loss: 1.916446, cer: 0.77, elapsed: 35.91s 28.85m 2.43h, lr: 0.000100
+[2021-03-13 19:12:02,703][kospeech.utils][INFO] - step: 1020/1874, loss: 1.607798, cer: 0.77, elapsed: 34.11s 29.42m 2.44h, lr: 0.000100
+[2021-03-13 19:12:37,473][kospeech.utils][INFO] - step: 1040/1874, loss: 1.582589, cer: 0.76, elapsed: 34.77s 30.00m 2.45h, lr: 0.000100
+[2021-03-13 19:13:14,047][kospeech.utils][INFO] - step: 1060/1874, loss: 1.702562, cer: 0.76, elapsed: 36.57s 30.61m 2.46h, lr: 0.000100
+[2021-03-13 19:13:48,795][kospeech.utils][INFO] - step: 1080/1874, loss: 1.531491, cer: 0.76, elapsed: 34.75s 31.18m 2.47h, lr: 0.000100
+[2021-03-13 19:14:22,566][kospeech.utils][INFO] - step: 1100/1874, loss: 1.493235, cer: 0.76, elapsed: 33.77s 31.75m 2.48h, lr: 0.000100
+[2021-03-13 19:15:00,662][kospeech.utils][INFO] - step: 1120/1874, loss: 1.660358, cer: 0.76, elapsed: 38.10s 32.38m 2.49h, lr: 0.000100
+[2021-03-13 19:15:34,689][kospeech.utils][INFO] - step: 1140/1874, loss: 1.700564, cer: 0.76, elapsed: 34.03s 32.95m 2.50h, lr: 0.000100
+[2021-03-13 19:16:07,786][kospeech.utils][INFO] - step: 1160/1874, loss: 1.566941, cer: 0.76, elapsed: 33.10s 33.50m 2.51h, lr: 0.000100
+[2021-03-13 19:16:42,192][kospeech.utils][INFO] - step: 1180/1874, loss: 1.614704, cer: 0.76, elapsed: 34.41s 34.07m 2.52h, lr: 0.000100
+[2021-03-13 19:17:15,169][kospeech.utils][INFO] - step: 1200/1874, loss: 1.768215, cer: 0.76, elapsed: 32.98s 34.62m 2.52h, lr: 0.000100
+[2021-03-13 19:17:48,207][kospeech.utils][INFO] - step: 1220/1874, loss: 1.628186, cer: 0.76, elapsed: 33.04s 35.17m 2.53h, lr: 0.000100
+[2021-03-13 19:18:23,936][kospeech.utils][INFO] - step: 1240/1874, loss: 1.617751, cer: 0.76, elapsed: 35.73s 35.77m 2.54h, lr: 0.000100
+[2021-03-13 19:18:57,286][kospeech.utils][INFO] - step: 1260/1874, loss: 1.638465, cer: 0.76, elapsed: 33.35s 36.33m 2.55h, lr: 0.000100
+[2021-03-13 19:19:30,963][kospeech.utils][INFO] - step: 1280/1874, loss: 1.386326, cer: 0.76, elapsed: 33.68s 36.89m 2.56h, lr: 0.000100
+[2021-03-13 19:20:06,849][kospeech.utils][INFO] - step: 1300/1874, loss: 1.525023, cer: 0.76, elapsed: 35.89s 37.49m 2.57h, lr: 0.000100
+[2021-03-13 19:20:41,696][kospeech.utils][INFO] - step: 1320/1874, loss: 1.678250, cer: 0.76, elapsed: 34.85s 38.07m 2.58h, lr: 0.000100
+[2021-03-13 19:21:15,634][kospeech.utils][INFO] - step: 1340/1874, loss: 1.442344, cer: 0.75, elapsed: 33.94s 38.63m 2.59h, lr: 0.000100
+[2021-03-13 19:21:49,896][kospeech.utils][INFO] - step: 1360/1874, loss: 1.574442, cer: 0.75, elapsed: 34.26s 39.20m 2.60h, lr: 0.000100
+[2021-03-13 19:22:21,175][kospeech.utils][INFO] - step: 1380/1874, loss: 1.580671, cer: 0.75, elapsed: 31.28s 39.72m 2.61h, lr: 0.000100
+[2021-03-13 19:22:55,489][kospeech.utils][INFO] - step: 1400/1874, loss: 1.519046, cer: 0.75, elapsed: 34.31s 40.30m 2.62h, lr: 0.000100
+[2021-03-13 19:23:28,951][kospeech.utils][INFO] - step: 1420/1874, loss: 1.485852, cer: 0.75, elapsed: 33.46s 40.85m 2.63h, lr: 0.000100
+[2021-03-13 19:24:03,990][kospeech.utils][INFO] - step: 1440/1874, loss: 1.676630, cer: 0.75, elapsed: 35.04s 41.44m 2.64h, lr: 0.000100
+[2021-03-13 19:24:36,044][kospeech.utils][INFO] - step: 1460/1874, loss: 1.371993, cer: 0.75, elapsed: 32.05s 41.97m 2.65h, lr: 0.000100
+[2021-03-13 19:25:12,536][kospeech.utils][INFO] - step: 1480/1874, loss: 1.488240, cer: 0.75, elapsed: 36.49s 42.58m 2.66h, lr: 0.000100
+[2021-03-13 19:25:47,235][kospeech.utils][INFO] - step: 1500/1874, loss: 1.549496, cer: 0.75, elapsed: 34.70s 43.16m 2.67h, lr: 0.000100
+[2021-03-13 19:26:22,407][kospeech.utils][INFO] - step: 1520/1874, loss: 1.444303, cer: 0.75, elapsed: 35.17s 43.74m 2.68h, lr: 0.000100
+[2021-03-13 19:26:57,053][kospeech.utils][INFO] - step: 1540/1874, loss: 1.557326, cer: 0.75, elapsed: 34.65s 44.32m 2.69h, lr: 0.000100
+[2021-03-13 19:27:31,902][kospeech.utils][INFO] - step: 1560/1874, loss: 1.466587, cer: 0.75, elapsed: 34.85s 44.90m 2.70h, lr: 0.000100
+[2021-03-13 19:28:05,392][kospeech.utils][INFO] - step: 1580/1874, loss: 1.527540, cer: 0.75, elapsed: 33.49s 45.46m 2.71h, lr: 0.000100
+[2021-03-13 19:28:40,355][kospeech.utils][INFO] - step: 1600/1874, loss: 1.755483, cer: 0.75, elapsed: 34.96s 46.04m 2.72h, lr: 0.000100
+[2021-03-13 19:29:17,391][kospeech.utils][INFO] - step: 1620/1874, loss: 1.521558, cer: 0.75, elapsed: 37.04s 46.66m 2.73h, lr: 0.000100
+[2021-03-13 19:29:51,687][kospeech.utils][INFO] - step: 1640/1874, loss: 1.628410, cer: 0.74, elapsed: 34.30s 47.23m 2.74h, lr: 0.000100
+[2021-03-13 19:30:24,808][kospeech.utils][INFO] - step: 1660/1874, loss: 1.557114, cer: 0.74, elapsed: 33.12s 47.78m 2.74h, lr: 0.000100
+[2021-03-13 19:30:58,278][kospeech.utils][INFO] - step: 1680/1874, loss: 1.668512, cer: 0.74, elapsed: 33.47s 48.34m 2.75h, lr: 0.000100
+[2021-03-13 19:31:34,383][kospeech.utils][INFO] - step: 1700/1874, loss: 1.675247, cer: 0.74, elapsed: 36.10s 48.94m 2.76h, lr: 0.000100
+[2021-03-13 19:32:06,424][kospeech.utils][INFO] - step: 1720/1874, loss: 1.632047, cer: 0.74, elapsed: 32.04s 49.48m 2.77h, lr: 0.000100
+[2021-03-13 19:32:39,095][kospeech.utils][INFO] - step: 1740/1874, loss: 1.338609, cer: 0.74, elapsed: 32.67s 50.02m 2.78h, lr: 0.000100
+[2021-03-13 19:33:13,440][kospeech.utils][INFO] - step: 1760/1874, loss: 1.473214, cer: 0.74, elapsed: 34.34s 50.60m 2.79h, lr: 0.000100
+[2021-03-13 19:33:46,396][kospeech.utils][INFO] - step: 1780/1874, loss: 1.444903, cer: 0.74, elapsed: 32.96s 51.14m 2.80h, lr: 0.000100
+[2021-03-13 19:34:21,011][kospeech.utils][INFO] - step: 1800/1874, loss: 1.664603, cer: 0.74, elapsed: 34.61s 51.72m 2.81h, lr: 0.000100
+[2021-03-13 19:34:54,228][kospeech.utils][INFO] - step: 1820/1874, loss: 1.621986, cer: 0.74, elapsed: 33.22s 52.28m 2.82h, lr: 0.000100
+[2021-03-13 19:35:28,219][kospeech.utils][INFO] - step: 1840/1874, loss: 1.771005, cer: 0.74, elapsed: 33.99s 52.84m 2.83h, lr: 0.000100
+[2021-03-13 19:36:04,846][kospeech.utils][INFO] - step: 1860/1874, loss: 1.515327, cer: 0.74, elapsed: 36.63s 53.45m 2.84h, lr: 0.000100
+[2021-03-13 19:36:35,301][kospeech.utils][INFO] - save checkpoints
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_19_36_30-trainer_states.pt
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_19_36_30-model.pt
+[2021-03-13 19:36:35,301][kospeech.utils][INFO] - train() completed
+[2021-03-13 19:36:39,084][kospeech.utils][INFO] - save checkpoints
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_19_36_35-trainer_states.pt
+/content/drive/My Drive/projectk/project-3epoch-sift/KoSpeech/outputs/2021-03-13/16-45-41/2021_03_13_19_36_35-model.pt
+[2021-03-13 19:36:39,084][kospeech.utils][INFO] - Epoch 2 (Training) Loss 0.0001 CER 0.7379
+[2021-03-13 19:36:39,085][kospeech.utils][INFO] - validate() start
+[2021-03-13 19:37:33,691][kospeech.utils][INFO] - validate() completed
+[2021-03-13 19:37:33,691][kospeech.utils][INFO] - Epoch 2 CER 0.7353
+[2021-03-13 19:37:33,702][kospeech.utils][INFO] - Epoch 2 Training result saved as a csv file complete !!
